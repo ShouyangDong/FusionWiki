@@ -1,7 +1,7 @@
 # FusionWiki entry schema
 
 Every file under `entries/` contains one JSON object per line (JSONL). Each
-line is one **measured** outcome, written by InferArch at the moment a
+line is one **measured** outcome, written by MASTER at the moment a
 candidate is evaluated or admitted.
 
 ## Entry fields
@@ -68,6 +68,6 @@ plan_mutation lesson_key = "plan_mutation:" + sha256({...})
   (accepted at least once, or positive median improvement), used for
   warm-start injection.
 
-The derivation logic lives in InferArch
-(`inferarch.planning.fusion_wiki`); `tools/rebuild.py` is a thin wrapper so
+The derivation logic lives in MASTER
+(`master.planning.fusion_wiki`); `tools/rebuild.py` is a thin wrapper so
 this repository never carries a second implementation.
