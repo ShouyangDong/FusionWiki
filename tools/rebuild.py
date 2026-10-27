@@ -2,13 +2,13 @@
 """Regenerate the derived lessons/ view from the raw entries/ shards.
 
 entries/ is the single source of truth; this script is the only writer of
-lessons/. The read and derivation logic is imported from InferArch so this
+lessons/. The read and derivation logic is imported from MASTER so this
 repository never carries a second, drifting implementation:
 
     python tools/rebuild.py [--wiki /path/to/FusionWiki]
 
-Requires an importable inferarch package (e.g. run from an InferArch source
-checkout). Only the torch-free inferarch.planning.fusion_wiki module is used.
+Requires an importable master package (e.g. run from a MASTER source
+checkout). Only the torch-free master.planning.fusion_wiki module is used.
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    from inferarch.planning.fusion_wiki import derive_aggregates, read_sharded_entries
+    from master.planning.fusion_wiki import derive_aggregates, read_sharded_entries
 
     entries = read_sharded_entries(args.wiki)
     print(f"read {len(entries)} entries from {args.wiki / 'entries'}")

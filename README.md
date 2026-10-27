@@ -1,7 +1,7 @@
 # FusionWiki
 
 A shared, cross-model knowledge base of **measured** search experience,
-populated by [InferArch](https://github.com/ShouyangDong/InferArch) during
+populated by [MASTER](https://github.com/ShouyangDong/MASTER) during
 execution-plan search and fusion evolution.
 
 Search experience is written here whenever a candidate is measured: which
@@ -16,7 +16,7 @@ model transfers to the next.
 This repository stores **priors, not decisions**.
 
 - Every suggestion read back from the wiki must be re-measured on the current
-  model and pass InferArch's admission gates before it is used.
+  model and pass MASTER's admission gates before it is used.
 - Entries recorded under a different runtime-environment fingerprint (torch
   version, device, backend, ...) are excluded from derived lessons entirely.
   Stale experience never silently transfers.
@@ -42,16 +42,16 @@ tools/rebuild.py                                                   # regenerate 
 See [schema.md](schema.md) for the entry format, the lesson-key computation,
 and the experience domains.
 
-## Using it with InferArch
+## Using it with MASTER
 
-In a source checkout of InferArch, this repository lives at
+In a source checkout of MASTER, this repository lives at
 `3rdparty/FusionWiki` and is picked up automatically; no configuration is
 needed. To point at another location (or a shared checkout across machines):
 
 ```python
-from inferarch.deployment import InferArchLoopConfig
+from master.deployment import MasterLoopConfig
 
-config = InferArchLoopConfig(fusion_wiki_path="/shared/FusionWiki")
+config = MasterLoopConfig(fusion_wiki_path="/shared/FusionWiki")
 ```
 
 A **directory** enables the sharded append-only store described above; a
@@ -59,9 +59,9 @@ plain file path uses the legacy single-JSON store.
 
 ## Contributing
 
-Entries are machine-written by InferArch. To contribute:
+Entries are machine-written by MASTER. To contribute:
 
-1. Run InferArch on your model with the wiki enabled.
+1. Run MASTER on your model with the wiki enabled.
 2. Commit the new `entries/` shards and push.
 
 No manual entry editing, no secrets (environment fingerprints contain
